@@ -1,4 +1,4 @@
-package com.telusko.questionservice;
+package com.mdf.questionservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.telusko.serviceregistry;
+package com.mdf.serviceregistry;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

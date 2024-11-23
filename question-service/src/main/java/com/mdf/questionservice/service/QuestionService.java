@@ -2,9 +2,6 @@ package com.telusko.questionservice.service;
 
 
 import com.telusko.questionservice.dao.QuestionDao;
-import com.telusko.questionservice.model.Question;
-import com.telusko.questionservice.model.QuestionWrapper;
-import com.telusko.questionservice.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +18,7 @@ public class QuestionService {
     public ResponseEntity<List<Question>> getAllQuestions() {
         try {
             return new ResponseEntity<>(questionDao.findAll(), HttpStatus.OK);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
@@ -29,8 +26,8 @@ public class QuestionService {
 
     public ResponseEntity<List<Question>> getQuestionsByCategory(String category) {
         try {
-            return new ResponseEntity<>(questionDao.findByCategory(category),HttpStatus.OK);
-        }catch (Exception e){
+            return new ResponseEntity<>(questionDao.findByCategory(category), HttpStatus.OK);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
@@ -39,7 +36,7 @@ public class QuestionService {
 
     public ResponseEntity<String> addQuestion(Question question) {
         questionDao.save(question);
-        return new ResponseEntity<>("success",HttpStatus.CREATED);
+        return new ResponseEntity<>("success", HttpStatus.CREATED);
     }
 
     public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, Integer numQuestions) {
@@ -51,11 +48,11 @@ public class QuestionService {
         List<QuestionWrapper> wrappers = new ArrayList<>();
         List<Question> questions = new ArrayList<>();
 
-        for(Integer id : questionIds){
+        for (Integer id : questionIds) {
             questions.add(questionDao.findById(id).get());
         }
 
-        for(Question question : questions){
+        for (Question question : questions) {
             QuestionWrapper wrapper = new QuestionWrapper();
             wrapper.setId(question.getId());
             wrapper.setQuestionTitle(question.getQuestionTitle());
@@ -74,9 +71,9 @@ public class QuestionService {
 
         int right = 0;
 
-        for(Response response : responses){
+        for (Response response : responses) {
             Question question = questionDao.findById(response.getId()).get();
-            if(response.getResponse().equals(question.getRightAnswer()))
+            if (response.getResponse().equals(question.getRightAnswer()))
                 right++;
         }
         return new ResponseEntity<>(right, HttpStatus.OK);

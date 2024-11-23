@@ -1,10 +1,10 @@
-package com.telusko.quizservice.service;
+package com.mdf.quizservice.service;
 
-import com.telusko.quizservice.dao.QuizDao;
-import com.telusko.quizservice.feign.QuizInterface;
-import com.telusko.quizservice.model.QuestionWrapper;
-import com.telusko.quizservice.model.Quiz;
-import com.telusko.quizservice.model.Response;
+import com.mdf.quizservice.dao.QuizDao;
+import com.mdf.quizservice.feign.QuizInterface;
+import com.mdf.quizservice.model.QuestionWrapper;
+import com.mdf.quizservice.model.Quiz;
+import com.mdf.quizservice.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.telusko.quizservice.model;
+package com.mdf.quizservice.model;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.telusko.apigateway;
+package com.mdf.apigateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
